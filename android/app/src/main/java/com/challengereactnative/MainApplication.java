@@ -1,4 +1,4 @@
-package com.challengereactnative;
+package com.players;
 
 import android.app.Application;
 import android.content.Context;

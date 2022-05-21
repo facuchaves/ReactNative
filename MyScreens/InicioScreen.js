@@ -1,15 +1,9 @@
 import * as React from 'react';
-import {View, Text, Image} from 'react-native';
-import MyButton from './MyButton';
-import BurgersToText from '../components/BurgersToText';
+import {View } from 'react-native';
+import EntitiesList from '../components/EntitiesList';
 
-export default function InicioScreen(props) {
-  return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text style={{fontSize: 20}}>Inicio Screen</Text>
-      <MyButton nombre="Ir a Statisticss" destino="Statistics" />
-
-      <BurgersToText />
+export default InicioScreen = props => (
+    <View style={{flex: 1, justifyContent: 'center'}}>
+      <EntitiesList navigation={props.navigation}/>
     </View>
   );
-}
