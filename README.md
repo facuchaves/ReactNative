@@ -4,7 +4,7 @@
 [![npm version](https://badge.fury.io/js/react-native-localize.svg)](https://www.npmjs.org/package/react-native-localize)
 [![Platform - Android](https://img.shields.io/badge/platform-Android-3ddc84.svg?style=flat&logo=android)](https://www.android.com)
 
-<img width="400" height="auto" center src="https://github.com/zoontek/react-native-localize/blob/master/docs/screenshot.png?raw=true" />
+<img width="400" height="auto" center src="https://github.com/facuchaves/challengeReactNative/blob/master/images/AppDemo.gif" />
 
 Contenido:
 
