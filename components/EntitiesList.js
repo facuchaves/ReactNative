@@ -3,7 +3,7 @@ import {View, TouchableOpacity , StyleSheet, Text} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {obtenerIpsSavedAccion} from '../redux/ipsSavedDucks';
 import { Table, Row, TableWrapper, Cell } from 'react-native-table-component';
-import * as RootNavigation from '../MyScreens/RootNavigation'
+import * as RootNavigation from '../Screens/RootNavigation'
 
 const EntitiesList = props => {
   //EN ESTE EJEMPLO MUESTRO TODAS LAS IPS SIN TENER QUE PEGARLE A NINGUN ENDPOINT ME TRAE TODA LA INFO AL CARGAR ESTE COMPONENTE
