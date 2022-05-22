@@ -1,5 +1,10 @@
 
-# Challenge-react
+# ReactNative App
+
+[![npm version](https://badge.fury.io/js/react-native-localize.svg)](https://www.npmjs.org/package/react-native-localize)
+[![Platform - Android](https://img.shields.io/badge/platform-Android-3ddc84.svg?style=flat&logo=android)](https://www.android.com)
+
+<img width="400" height="auto" center src="https://github.com/zoontek/react-native-localize/blob/master/docs/screenshot.png?raw=true" />
 
 Contenido:
 
@@ -31,43 +36,37 @@ npx react-native init nombreApp
 
 adentro del proyecto correr
 
+```bash
 npm i redux
-
 npm i react-redux
-
 npm i redux-devtools
-
 npm i redux-thunk
-
 npm i axios
-
 npm install react-router-dom
-
 npm install react-hook-form
-
 npm install @react-navigation/native
-
 npm install react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
-
 npm i --save react-native-elements
-
 npm i --save react-native-vector-icons
-
 npm install @react-navigation/stack
-
 npm install @react-navigation/drawer
 
 npx react-native link
+```
 
 ## Correr Proyecto
 
 Se debe correr en la raiz del proyecto lo siguiete
 
--yarn
--yarn start
+```bash
+$ yarn
+$ yarn start
+```
 
 En una nueva consola
--yarn android
+```bash
+$ yarn android
+```
 
 ## Desarrollo
 Proyecto desarrollado en React Native
@@ -82,7 +81,9 @@ Puertos usados: 8081 (Proyecto)
 -si al querer pegarle a los endpoints del proyecto challenge levantado de forma local no funciona
 correr en la consola en la raiz del proyecto
 
-adb reverse tcp:8080 tcp:8080
+```bash
+$ adb reverse tcp:8080 tcp:8080
+```
 
 (seria el puerto en el que tengo levantado el proyecto backend)
 
