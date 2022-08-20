@@ -1,9 +1,13 @@
+/* eslint-disable react/prop-types */
 import * as React from 'react';
 import {View} from 'react-native';
 import EntitiesList from '../components/EntitiesList';
 
-export default EntitiesListScreen = (props) => (
+// eslint-disable-next-line no-undef
+const EntitiesListScreen = () => (
   <View style={{flex: 1, justifyContent: 'center'}}>
-    <EntitiesList navigation={props.navigation} />
+    <EntitiesList />
   </View>
 );
+
+export default EntitiesListScreen;

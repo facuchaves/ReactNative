@@ -2,10 +2,10 @@ import * as React from 'react';
 import {View} from 'react-native';
 import Entity from '../components/Entity';
 
-const mockEntity = {name: 'Mock Name', score: 88};
-
-export default EntityScreen = (props) => (
+const EntityScreen = ({route}: {route: any}) => (
   <View style={{flex: 1, justifyContent: 'center'}}>
-    <Entity entity={mockEntity} />
+    <Entity entity={route.params.entity} />
   </View>
 );
+
+export default EntityScreen;

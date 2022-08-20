@@ -1,13 +1,11 @@
-// In App.js in a new project
-
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import {navigationRef} from '../Screens/RootNavigation';
-import EntitiesListScreen from '../Screens/EntitiesListScreen';
-import EntityScreen from '../Screens/EntityScreen';
-import SideBar from '../layout/SideBar';
 import {Header} from 'react-native-elements';
+import {navigationRef} from '../screens/RootNavigation';
+import EntitiesListScreen from '../screens/EntitiesListScreen';
+import EntityScreen from '../screens/EntityScreen';
+import SideBar from '../layout/SideBar';
 
 const Drawer = createDrawerNavigator();
 
