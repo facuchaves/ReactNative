@@ -4,7 +4,7 @@ import {Table, Row, TableWrapper, Cell} from 'react-native-table-component';
 import {useDispatch, useSelector} from 'react-redux';
 import EntityModel from '../model/entity';
 import getEntitiesAccion from '../redux/entityAction';
-import * as RootNavigation from '../screens/RootNavigation';
+import * as RootNavigation from '../navigation/NavigationRef';
 
 const styles = StyleSheet.create({
   container: {flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff'},
@@ -59,10 +59,11 @@ const EntitiesList = () => {
         />
         {entities.map((currentEntity) => (
           <TouchableOpacity
+            key={currentEntity.entity_id}
             onPress={() =>
               RootNavigation.navigate('Entity', {entity: currentEntity})
             }>
-            <TableWrapper key={currentEntity.entity_id} style={styles.row}>
+            <TableWrapper style={styles.row}>
               <Cell
                 data={element(currentEntity.name)}
                 textStyle={styles.text}
