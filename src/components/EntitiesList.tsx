@@ -2,9 +2,11 @@ import React, {useEffect} from 'react';
 import {View, TouchableOpacity, StyleSheet, Text} from 'react-native';
 import {Table, Row, TableWrapper, Cell} from 'react-native-table-component';
 import {useDispatch, useSelector} from 'react-redux';
+import i18n from 'i18next';
 import EntityModel from '../model/entity';
 import getEntitiesAccion from '../redux/entityAction';
 import * as RootNavigation from '../navigation/NavigationRef';
+import '../i18n';
 
 const styles = StyleSheet.create({
   container: {flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff'},
@@ -53,7 +55,10 @@ const EntitiesList = () => {
     <View style={styles.container}>
       <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
         <Row
-          data={['Name', 'Score']}
+          data={[
+            i18n.t('entityList.table.headers.name'),
+            i18n.t('entityList.table.headers.score'),
+          ]}
           style={styles.head}
           textStyle={styles.text}
         />

@@ -1,5 +1,7 @@
 import React from 'react';
+import i18n from 'i18next';
 import {View, StyleSheet, Text} from 'react-native';
+import '../i18n';
 
 const styles = StyleSheet.create({
   center: {
@@ -12,7 +14,7 @@ const styles = StyleSheet.create({
 
 const About = () => (
   <View style={styles.center}>
-    <Text>This is the about screen</Text>
+    <Text>{i18n.t('about.content')}</Text>
   </View>
 );
 
