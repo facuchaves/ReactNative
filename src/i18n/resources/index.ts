@@ -3,6 +3,7 @@ import aboutResource from './about.resource';
 import contactResource from './contact.resource';
 import entityListResource from './entityList.resource';
 import navigationResource from './navigation.resource';
+import sidebarResource from './sidebar.resource';
 
 const resources = {
   en: {
@@ -12,6 +13,7 @@ const resources = {
       ...contactResource.en.translation,
       ...entityListResource.en.translation,
       ...navigationResource.en.translation,
+      ...sidebarResource.en.translation,
     },
   },
 };
