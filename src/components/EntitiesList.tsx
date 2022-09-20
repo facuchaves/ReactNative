@@ -1,12 +1,11 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {View, TouchableOpacity, StyleSheet, Text} from 'react-native';
 import {Table, Row, TableWrapper, Cell} from 'react-native-table-component';
-import {useDispatch, useSelector} from 'react-redux';
 import i18n from 'i18next';
-import EntityModel from '../model/entity';
-import getEntitiesAccion from '../redux/entityAction';
+// import EntityModel from '../model/entity';
 import * as RootNavigation from '../navigation/NavigationRef';
 import '../i18n';
+import {useAppSelector} from '../hooks/reactReduxHooks';
 
 const styles = StyleSheet.create({
   container: {flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff'},
@@ -18,32 +17,10 @@ const styles = StyleSheet.create({
 });
 
 const EntitiesList = () => {
-  // EN ESTE EJEMPLO MUESTRO TODAS LAS IPS SIN TENER QUE PEGARLE A NINGUN ENDPOINT ME TRAE TODA LA INFO AL CARGAR ESTE COMPONENTE
-
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isLoading, setIsLoading] = React.useState(false);
 
-  // el useSelector() que importamos para poder leer toda la tienda
-  // dentro de la tienda(store.js) tenemos statistics y countryInfo. y en statistics entre otras cosas
-  // tiene un objeto con toda la info de las estadisticas que le pega al endpoint correspondiente
-  const entities: Array<EntityModel> = useSelector(
-    (store) => store.entityStore.entities,
-  );
-
-  // el useDispatch() que importamos nos sirve para poder consumir nuestras acciones creadas en los ducks
-  const dispatch = useDispatch();
-
-  const obtenerDatos = async () => {
-    setIsLoading(true);
-    getEntitiesAccion(dispatch);
-    setIsLoading(false);
-  };
-
-  // useEffect se ejecutara una vez que levante este componente (IpsSaved.jsx)
-  useEffect(() => {
-    obtenerDatos();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const entities = useAppSelector((state) => state.entity.entities);
 
   const element = (data: any) => (
     <View>
