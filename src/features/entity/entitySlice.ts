@@ -15,6 +15,7 @@ const initialState: EntityState = {
     {id: 3, name: 'John Week', score: 30},
     {id: 4, name: 'David Coperfield', score: 40},
     {id: 5, name: 'Diego Bounanote', score: 50},
+    {id: 6, name: 'Charly Garcia', score: 60},
   ],
 };
 
