@@ -7,6 +7,7 @@ import {
   Image,
   TouchableOpacity,
   TouchableHighlight,
+  Alert,
 } from 'react-native';
 import {Table, Row, TableWrapper, Cell} from 'react-native-table-component';
 import i18n from 'i18next';
@@ -122,7 +123,7 @@ const renderHiddenItem = (data, rowMap) => (
 
 const renderItem = (data) => (
   <TouchableHighlight
-    onPress={() => console.log('You touched me')}
+    onPress={() => RootNavigation.navigate('Entity', {entity: data.item})}
     style={[styles.listItem, styles.rowFront]}
     underlayColor={'#AAA'}>
     <View style={styles.listItem}>
