@@ -6,6 +6,7 @@
   "extends": [
     "plugin:react/recommended",
     "@react-native-community",
+    "plugin:jest/recommended",
     "airbnb",
     "airbnb-typescript",
     "prettier"
@@ -25,19 +26,22 @@
   },
   "rules": {
     "react/function-component-definition": "off",
-    "no-use-before-define":"off",
+    "no-use-before-define": "off",
     "no-unused-vars": "warn",
     "react/require-default-props": "warn",
-    "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "react/jsx-filename-extension": [
+      2,
+      {"extensions": [".js", ".jsx", ".ts", ".tsx"]}
+    ],
     "import/extensions": [
-        "error",
-        "ignorePackages",
-        {
-          "js": "never",
-          "jsx": "never",
-          "ts": "never",
-          "tsx": "never"
-        }
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
     ]
   }
 }
