@@ -1,8 +1,8 @@
 import {StyleSheet} from 'react-native';
 import darkColor from '../../styles';
-import {getStyle} from '../../styles/utils';
+import {getStyles} from '../../styles/utils';
 
-const styles = StyleSheet.create({
+const lightStyles = StyleSheet.create({
   center: {
     flex: 1,
     justifyContent: 'center',
@@ -12,8 +12,8 @@ const styles = StyleSheet.create({
 });
 
 const darkMode = StyleSheet.create({
-  center: {...styles.center, backgroundColor: darkColor},
+  center: {...lightStyles.center, backgroundColor: darkColor},
 });
 
-export const style = (theme: string | null | undefined) =>
-  getStyle(theme, styles, darkMode);
+export const styles = (theme: string | null | undefined) =>
+  getStyles(theme, styles, darkMode);

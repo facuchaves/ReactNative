@@ -9,14 +9,14 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 import EntityModel from '../../model/entity';
-import {styles, darkMode} from './styles';
+import styles from './styles';
 import {AppearanceContext} from '../../context/Appearance.context';
 
 const logo = require('../../layout/logo.jpeg');
 
 const Entity = ({entity}: {entity: EntityModel}) => {
   const theme = React.useContext(AppearanceContext);
-  const currentStyle = theme == 'light' ? styles : darkMode;
+  const currentStyle = styles(theme);
   const clickEventListener = () => {
     Alert.alert('Success', 'Product has beed added to cart');
   };

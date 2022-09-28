@@ -13,7 +13,7 @@ import {SwipeListView} from 'react-native-swipe-list-view';
 import * as RootNavigation from '../../navigation/NavigationRef';
 import '../../i18n';
 import {useAppSelector} from '../../hooks/reactReduxHooks';
-import style, {styles} from './styles';
+import {lightStyles} from './styles';
 import {AppearanceContext} from '../../context/Appearance.context';
 
 const logo = require('../../layout/logo.jpeg');
@@ -23,23 +23,23 @@ const closeRow = (rowMap, rowKey) => {};
 const deleteRow = (rowMap, rowKey) => {};
 
 const renderHiddenItem = (data, rowMap) => (
-  <View style={[styles.rowBack]}>
+  <View style={[lightStyles.rowBack]}>
     <Text>Left</Text>
     <TouchableOpacity
-      style={[styles.backRightBtn, styles.backRightBtnLeft]}
+      style={[lightStyles.backRightBtn, lightStyles.backRightBtnLeft]}
       onPress={() => closeRow(rowMap, data.item.key)}>
-      <Text style={styles.backTextWhite}>Close</Text>
+      <Text style={lightStyles.backTextWhite}>Close</Text>
     </TouchableOpacity>
     <TouchableOpacity
-      style={[styles.backRightBtn, styles.backRightBtnRight]}
+      style={[lightStyles.backRightBtn, lightStyles.backRightBtnRight]}
       onPress={() => deleteRow(rowMap, data.item.key)}>
-      <Text style={styles.backTextWhite}>Delete</Text>
+      <Text style={lightStyles.backTextWhite}>Delete</Text>
     </TouchableOpacity>
   </View>
 );
 // ({item}) => <EntityListItem entity={item} />}
 // const EntityListItem = ({entity}) => (
-//   <View style={styles.listItem}>
+//   <View style={lightStyles.listItem}>
 //     <Image source={logo} style={{width: 60, height: 60, borderRadius: 30}} />
 //     <View style={{alignItems: 'center', flex: 1}}>
 //       <Text style={{fontWeight: 'bold'}}>{entity.name}</Text>
@@ -60,9 +60,9 @@ const renderHiddenItem = (data, rowMap) => (
 const renderItem = (data) => (
   <TouchableHighlight
     onPress={() => RootNavigation.navigate('Entity', {entity: data.item})}
-    style={[styles.listItem, styles.rowFront]}
+    style={[lightStyles.listItem, lightStyles.rowFront]}
     underlayColor={'#AAA'}>
-    <View style={styles.listItem}>
+    <View style={lightStyles.listItem}>
       <Image source={logo} style={{width: 60, height: 60, borderRadius: 30}} />
       <View style={{flex: 1}}>
         <Text style={{fontWeight: 'bold'}}>{data.item.name}</Text>
@@ -87,11 +87,8 @@ const EntitiesList = () => {
 
   const entities = useAppSelector((state) => state.entity.entities);
 
-  const theme = React.useContext(AppearanceContext);
-  const currentStyle = style(theme);
-
   return (
-    // <View style={styles.container}>
+    // <View style={lightStyles.container}>
     //   <FlatList
     //     style={{flex: 1}}
     //     data={entities}

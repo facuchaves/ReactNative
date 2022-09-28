@@ -1,4 +1,4 @@
-export const getStyle = (
+export const getStyles = (
   theme: string | null | undefined,
   styles: any,
   darkMode: any,

@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-export const styles = StyleSheet.create({
+const lightStyles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: 20,
@@ -90,10 +90,16 @@ export const styles = StyleSheet.create({
   },
 });
 
-export const darkMode = StyleSheet.create({
-  ...styles,
+const darkMode = StyleSheet.create({
+  ...lightStyles,
   container: {
-    ...styles.container,
+    ...lightStyles.container,
     backgroundColor: 'black',
   },
 });
+
+const styles = (theme: string | null | undefined) => {
+  return theme == 'light' ? lightStyles : darkMode;
+};
+
+export default styles;
