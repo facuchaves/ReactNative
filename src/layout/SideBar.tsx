@@ -7,36 +7,49 @@ import {
   DrawerContentScrollView,
   DrawerItemList,
 } from '@react-navigation/drawer';
-import styles from './SideBarStyles';
+import {styles, darkMode} from './styles';
+import {AppearanceContext} from '../context/Appearance.context';
 
 const logo = require('./logo.jpeg');
 const camera = require('./camera.png');
 
-const SideBarHeader = () => (
-  <View style={styles.bgContainer}>
-    <TouchableOpacity>
-      <View style={styles.userContainer}>
-        <Image style={styles.userImagen} source={logo} />
-        <View style={styles.camaraContainer}>
-          <Image style={styles.camaraIcon} source={camera} />
+const SideBarHeader = () => {
+  const theme = React.useContext(AppearanceContext);
+  const currentStyle = theme == 'light' ? styles : darkMode;
+
+  return (
+    <View style={currentStyle.bgContainer}>
+      <TouchableOpacity>
+        <View style={currentStyle.userContainer}>
+          <Image style={currentStyle.userImagen} source={logo} />
+          <View style={currentStyle.camaraContainer}>
+            <Image style={currentStyle.camaraIcon} source={camera} />
+          </View>
         </View>
-      </View>
 
-      <View style={styles.userNombre}>
-        <Text style={styles.userTitulo}>{i18n.t('sidebar.title')}</Text>
-        <Text style={styles.userSubTitulo}>{i18n.t('sidebar.subtitle')}</Text>
-      </View>
-    </TouchableOpacity>
-  </View>
-);
+        <View style={currentStyle.userNombre}>
+          <Text style={currentStyle.userTitulo}>{i18n.t('sidebar.title')}</Text>
+          <Text style={currentStyle.userSubTitulo}>
+            {i18n.t('sidebar.subtitle')}
+          </Text>
+        </View>
+      </TouchableOpacity>
+    </View>
+  );
+};
 
-const SideBar = (props: any) => (
-  <View style={styles.container}>
-    <SideBarHeader />
-    <DrawerContentScrollView {...props}>
-      <DrawerItemList {...props} />
-    </DrawerContentScrollView>
-  </View>
-);
+const SideBar = (props: any) => {
+  const theme = React.useContext(AppearanceContext);
+  const currentStyle = theme == 'light' ? styles : darkMode;
+
+  return (
+    <View style={currentStyle.container}>
+      <SideBarHeader />
+      <DrawerContentScrollView {...props}>
+        <DrawerItemList {...props} />
+      </DrawerContentScrollView>
+    </View>
+  );
+};
 
 export default SideBar;

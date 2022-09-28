@@ -3,10 +3,13 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import {store} from './store';
 import Navigator from './src/navigation/RootNavigation';
+import {AppearanceProvider} from './src/context/Appearance.context';
 
 const App = () => (
   <Provider store={store}>
-    <Navigator />
+    <AppearanceProvider>
+      <Navigator />
+    </AppearanceProvider>
   </Provider>
 );
 
