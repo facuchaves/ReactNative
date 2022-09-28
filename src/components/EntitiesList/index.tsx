@@ -2,11 +2,9 @@ import React from 'react';
 import {
   Text,
   View,
-  FlatList,
   Image,
   TouchableOpacity,
   TouchableHighlight,
-  Alert,
 } from 'react-native';
 import {SwipeListView} from 'react-native-swipe-list-view';
 // import EntityModel from '../model/entity';
@@ -14,15 +12,15 @@ import * as RootNavigation from '../../navigation/NavigationRef';
 import '../../i18n';
 import {useAppSelector} from '../../hooks/reactReduxHooks';
 import {lightStyles} from './styles';
-import {AppearanceContext} from '../../context/Appearance.context';
 
 const logo = require('../../layout/logo.jpeg');
 
-const closeRow = (rowMap, rowKey) => {};
+// eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
+const closeRow = (_rowMap: any, _rowKey: any) => {};
+// eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
+const deleteRow = (_rowMap: any, _rowKey: any) => {};
 
-const deleteRow = (rowMap, rowKey) => {};
-
-const renderHiddenItem = (data, rowMap) => (
+const renderHiddenItem = (data: any, rowMap: any) => (
   <View style={[lightStyles.rowBack]}>
     <Text>Left</Text>
     <TouchableOpacity
@@ -57,11 +55,11 @@ const renderHiddenItem = (data, rowMap) => (
 //   </View>
 // );
 
-const renderItem = (data) => (
+const renderItem = (data: any) => (
   <TouchableHighlight
     onPress={() => RootNavigation.navigate('Entity', {entity: data.item})}
     style={[lightStyles.listItem, lightStyles.rowFront]}
-    underlayColor={'#AAA'}>
+    underlayColor="#AAA">
     <View style={lightStyles.listItem}>
       <Image source={logo} style={{width: 60, height: 60, borderRadius: 30}} />
       <View style={{flex: 1}}>

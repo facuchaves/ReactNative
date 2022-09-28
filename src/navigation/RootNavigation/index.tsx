@@ -6,7 +6,7 @@ import {navigationRef} from '../NavigationRef';
 import DrawerNavigator from '../DrawerNavigator';
 import '../../i18n';
 import {AppearanceContext} from '../../context/Appearance.context';
-import {styles} from './styles';
+import styles from './styles';
 
 const Navigator = () => {
   const theme = React.useContext(AppearanceContext);

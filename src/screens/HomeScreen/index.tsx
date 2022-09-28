@@ -3,7 +3,7 @@ import {View, Button, Text} from 'react-native';
 import '../../i18n';
 import i18n from 'i18next';
 import {AppearanceContext} from '../../context/Appearance.context';
-import {styles} from './styles';
+import styles from './styles';
 
 const Home = ({navigation}: {navigation: any}) => {
   const theme = React.useContext(AppearanceContext);

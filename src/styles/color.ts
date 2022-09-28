@@ -1,1 +1,2 @@
-export const darkColor = 'black';
+const darkColor = 'black';
+export default darkColor;

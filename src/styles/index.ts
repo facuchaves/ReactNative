@@ -1,3 +1,3 @@
-import {darkColor} from './color';
+import darkColor from './color';
 
 export default darkColor;

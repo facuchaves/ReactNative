@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {View} from 'react-native';
 import {AppearanceContext} from '../../context/Appearance.context';
-import {styles} from './styles';
+import styles from './styles';
 import Entity from '../../components/Entity';
 
 const EntityScreen = ({route}: {route: any}) => {

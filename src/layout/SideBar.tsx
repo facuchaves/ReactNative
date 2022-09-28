@@ -1,5 +1,5 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import * as React from 'react';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import {View, Text, TouchableOpacity, Image} from 'react-native';
 import i18n from 'i18next';
 import '../i18n';
@@ -7,7 +7,7 @@ import {
   DrawerContentScrollView,
   DrawerItemList,
 } from '@react-navigation/drawer';
-import {styles, darkMode} from './styles';
+import styles from './styles';
 import {AppearanceContext} from '../context/Appearance.context';
 
 const logo = require('./logo.jpeg');
@@ -15,7 +15,7 @@ const camera = require('./camera.png');
 
 const SideBarHeader = () => {
   const theme = React.useContext(AppearanceContext);
-  const currentStyle = theme == 'light' ? styles : darkMode;
+  const currentStyle = styles(theme);
 
   return (
     <View style={currentStyle.bgContainer}>
@@ -40,7 +40,7 @@ const SideBarHeader = () => {
 
 const SideBar = (props: any) => {
   const theme = React.useContext(AppearanceContext);
-  const currentStyle = theme == 'light' ? styles : darkMode;
+  const currentStyle = styles(theme);
 
   return (
     <View style={currentStyle.container}>
