@@ -5,13 +5,17 @@ import {
   Image,
   TouchableOpacity,
   TouchableHighlight,
+  Alert,
 } from 'react-native';
 import {SwipeListView} from 'react-native-swipe-list-view';
+import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 // import EntityModel from '../model/entity';
 import * as RootNavigation from '../../navigation/NavigationRef';
 import '../../i18n';
-import {useAppSelector} from '../../hooks/reactReduxHooks';
 import {lightStyles} from './styles';
+import useEntities from '../../hooks/useEntities';
+import {EntityStatus} from '../../features/entity/entitySlice';
+import ERROR_500 from '../../screens/500';
 
 const logo = require('../../layout/logo.jpeg');
 
@@ -55,48 +59,69 @@ const renderHiddenItem = (data: any, rowMap: any) => (
 //   </View>
 // );
 
-const renderItem = (data: any) => (
-  <TouchableHighlight
-    onPress={() => RootNavigation.navigate('Entity', {entity: data.item})}
-    style={[lightStyles.listItem, lightStyles.rowFront]}
-    underlayColor="#AAA">
-    <View style={lightStyles.listItem}>
-      <Image source={logo} style={{width: 60, height: 60, borderRadius: 30}} />
-      <View style={{flex: 1}}>
-        <Text style={{fontWeight: 'bold'}}>{data.item.name}</Text>
-        <Text>{data.item.score}</Text>
+const renderItem = (data: any, loading: boolean = false) =>
+  loading ? (
+    <View style={[lightStyles.listItem, lightStyles.rowFront]}>
+      <View style={lightStyles.listItem}>
+        <SkeletonPlaceholder>
+          <SkeletonPlaceholder.Item flexDirection="row" alignItems="center">
+            <SkeletonPlaceholder.Item
+              width={60}
+              height={60}
+              borderRadius={30}
+            />
+            <SkeletonPlaceholder.Item marginLeft={20}>
+              <SkeletonPlaceholder.Item width={120} height={20} />
+              <SkeletonPlaceholder.Item marginTop={6} width={40} height={20} />
+            </SkeletonPlaceholder.Item>
+            <SkeletonPlaceholder.Item
+              marginLeft={20}
+              marginTop={6}
+              width={40}
+              height={20}
+            />
+          </SkeletonPlaceholder.Item>
+        </SkeletonPlaceholder>
       </View>
-      <TouchableOpacity
-        style={{
-          height: 50,
-          width: 50,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-        <Text style={{color: 'green'}}>Call</Text>
-      </TouchableOpacity>
     </View>
-  </TouchableHighlight>
-);
-
+  ) : (
+    <TouchableHighlight
+      onPress={() => RootNavigation.navigate('Entity', {entity: data.item})}
+      style={[lightStyles.listItem, lightStyles.rowFront]}
+      underlayColor="#AAA">
+      <View style={lightStyles.listItem}>
+        <Image
+          source={logo}
+          style={{width: 60, height: 60, borderRadius: 30}}
+        />
+        <View style={{flex: 1, marginLeft: 20}}>
+          <Text style={{fontWeight: 'bold'}}>{data.item.name}</Text>
+          <Text>{data.item.score}</Text>
+        </View>
+        <TouchableOpacity
+          style={{
+            height: 50,
+            width: 50,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <Text style={{color: 'green'}}> Call </Text>
+        </TouchableOpacity>
+      </View>
+    </TouchableHighlight>
+  );
 const EntitiesList = () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [isLoading, setIsLoading] = React.useState(false);
+  const {status, entities, dispatch} = useEntities();
 
-  const entities = useAppSelector((state) => state.entity.entities);
+  if (EntityStatus.ERROR === status) {
+    return <ERROR_500 />;
+  }
 
+  const loading = [EntityStatus.IDLE, EntityStatus.LOADING].includes(status);
   return (
-    // <View style={lightStyles.container}>
-    //   <FlatList
-    //     style={{flex: 1}}
-    //     data={entities}
-    //     renderItem={({item}) => <EntityListItem entity={item} />}
-    //     keyExtractor={(entity) => entity.name}
-    //   />
-    // </View>
     <SwipeListView
-      data={entities}
-      renderItem={renderItem}
+      data={entities.length > 0 ? entities : [...Array(5).keys()]}
+      renderItem={(item) => renderItem(item, loading)}
       renderHiddenItem={renderHiddenItem}
       leftOpenValue={75}
       rightOpenValue={-150}

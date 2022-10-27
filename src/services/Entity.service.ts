@@ -1,4 +1,8 @@
+import {Alert} from 'react-native';
+import {BASE_URL_APIREST} from '@env';
 import EntityModel from '../model/entity';
+
+const axios = require('axios').default;
 
 export default class EntityService {
   private entities: Array<EntityModel> = [
@@ -7,8 +11,10 @@ export default class EntityService {
     {entity_id: 3, name: 'Entity 3', score: 30},
   ];
 
-  getAllEntities(): Array<EntityModel> {
-    return this.entities;
+  static async getAllEntities(): Promise<Array<EntityModel>> {
+    return axios
+      .get(`${BASE_URL_APIREST}/api/resource`)
+      .then((res: any) => res.data);
   }
 
   getEntityById(entityIdToSearch: number): EntityModel | undefined {
