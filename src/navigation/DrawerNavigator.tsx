@@ -11,7 +11,7 @@ const Drawer = createDrawerNavigator();
 const DrawerNavigator = () => (
   // eslint-disable-next-line react/no-unstable-nested-components, react/jsx-props-no-spreading
   <Drawer.Navigator drawerContent={(props) => <SideBar {...props} />}>
-    <Drawer.Screen name="Entity" component={EntityScreen} />
+    {/* <Drawer.Screen name="Entity" component={EntityScreen} /> */}
     <Drawer.Screen name="Entities" component={EntitiesListScreen} />
     <Drawer.Screen name="Home" component={TabNavigator} />
     <Drawer.Screen name="Contact" component={ContactStackNavigator} />

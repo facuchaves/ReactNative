@@ -20,6 +20,27 @@ export const lightStyles = StyleSheet.create({
     flexDirection: 'row',
     borderRadius: 5,
   },
+  listItemLogo: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+  },
+  listItemView: {
+    flex: 1,
+    marginLeft: 20,
+  },
+  listItemText: {
+    fontWeight: 'bold',
+  },
+  listItemTouch: {
+    height: 50,
+    width: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  listItemTouchText: {
+    color: 'green',
+  },
   rowFront: {
     margin: 10,
     padding: 10,

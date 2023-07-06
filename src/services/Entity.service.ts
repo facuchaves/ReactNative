@@ -1,4 +1,3 @@
-import {Alert} from 'react-native';
 import {BASE_URL_APIREST} from '@env';
 import EntityModel from '../model/entity';
 

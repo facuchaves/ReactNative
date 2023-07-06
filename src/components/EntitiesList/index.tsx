@@ -5,7 +5,6 @@ import {
   Image,
   TouchableOpacity,
   TouchableHighlight,
-  Alert,
 } from 'react-native';
 import {SwipeListView} from 'react-native-swipe-list-view';
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
@@ -90,22 +89,13 @@ const renderItem = (data: any, loading: boolean = false) =>
       style={[lightStyles.listItem, lightStyles.rowFront]}
       underlayColor="#AAA">
       <View style={lightStyles.listItem}>
-        <Image
-          source={logo}
-          style={{width: 60, height: 60, borderRadius: 30}}
-        />
-        <View style={{flex: 1, marginLeft: 20}}>
-          <Text style={{fontWeight: 'bold'}}>{data.item.name}</Text>
+        <Image source={logo} style={lightStyles.listItemLogo} />
+        <View style={lightStyles.listItemView}>
+          <Text style={lightStyles.listItemText}>{data.item.name}</Text>
           <Text>{data.item.score}</Text>
         </View>
-        <TouchableOpacity
-          style={{
-            height: 50,
-            width: 50,
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-          <Text style={{color: 'green'}}> Call </Text>
+        <TouchableOpacity style={lightStyles.listItemTouch}>
+          <Text style={lightStyles.listItemTouchText}> Call </Text>
         </TouchableOpacity>
       </View>
     </TouchableHighlight>
