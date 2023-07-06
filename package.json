@@ -1,11 +1,11 @@
 {
-  "name": "challengeReactNative",
-  "version": "0.0.1",
+  "name": "ReactNative",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
+    "android": "react-native run-android --port=8082 --verbose",
     "ios": "react-native run-ios",
-    "start": "react-native start",
+    "start": "react-native start --port 8082",
     "test": "jest",
     "lint": "eslint ."
   },
@@ -48,6 +48,7 @@
   "devDependencies": {
     "@babel/core": "7.18.9",
     "@babel/runtime": "7.18.9",
+    "@react-native-community/cli": "9.2.1",
     "@react-native-community/eslint-config": "3.0.3",
     "@types/react-native-table-component": "1.2.4",
     "@types/react-redux": "7.1.24",

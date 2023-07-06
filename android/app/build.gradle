@@ -129,7 +129,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.players"
+        applicationId "com.ReactNative"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 3
